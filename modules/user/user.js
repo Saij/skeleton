@@ -136,14 +136,4 @@ module.exports = class User extends Module {
             next();
         });
     }
-
-    onCrudApiSave(item, req) {
-        if (req.user) {
-            if (!item.createdBy) {
-                item.createdBy = req.user._id;
-            }
-
-            item.updatedBy = req.user._id;
-        }
-    }
 }
