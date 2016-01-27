@@ -14,7 +14,7 @@ module.exports = class Database extends Module {
             this.log.debug("Initializing...");
 
             Application.modules.webserver.addRoute("get", "/database/status", (req, res) => {
-                if (!mongoose.connection._listening) {
+                if (mongoose.connection._readyState != 1) {
                     res.status(500);
                     return res.end("Disconnected");
                 }
