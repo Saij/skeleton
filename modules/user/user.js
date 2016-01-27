@@ -13,16 +13,6 @@ module.exports = class User extends Module {
             var userModel = mongoose.model("user");
             var userGroupModel = mongoose.model("userGroup");
 
-            Application.modules.crudApi.addModelApi("user", {
-                find: {
-                    populate: ["group"]
-                },
-                findOne: {
-                    populate: ["group"]
-                }
-            });
-            Application.modules.crudApi.addModelApi("userGroup");
-
             resolve();
         });
     }
